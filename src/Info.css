@@ -1,6 +1,6 @@
 .container {
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	justify-content: center;
 	width: 51rem;
 }
@@ -10,11 +10,18 @@
 	flex-direction: column;
 	justify-content: center;
 }
-
-/* .btn {
-	width: 10rem;
-	height: 1.75rem;
+.form-container input {
+	font-size: 18px;
+}
+button {
+	width: 328px;
+	height: 58px;
 	padding: 0.75rem;
 	color: aliceblue;
-	background-color: blue;
-} */
+	background-color: grey;
+}
+
+button :hover {
+	background-color: aliceblue;
+	cursor: pointer;
+}
