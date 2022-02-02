@@ -1,6 +1,7 @@
 import React from "react";
 import "./Info.css";
 import ImputHooks from "./ImputHooks";
+import Axios from "axios";
 function Info() {
 	const [nameValue, setName, resetName] = ImputHooks("");
 	const [ageValue, setAge, resetAge] = ImputHooks(0);
@@ -8,10 +9,22 @@ function Info() {
 	const [positionValue, setPosition, resetPosition] = ImputHooks("");
 	const [wageValue, setWage, resetWage] = ImputHooks(0);
 
-	const DisplayValues = () => {
-		console.log(
-			nameValue + ageValue + countryValue + positionValue + wageValue
-		);
+	// const DisplayValues = () => {
+	// 	console.log(
+	// 		nameValue + ageValue + countryValue + positionValue + wageValue
+	// 	);
+	// };
+
+	const addEmployeData = () => {
+		Axios.post("http://localhost:3001/create", {
+			name: nameValue,
+			age: ageValue,
+			country: countryValue,
+			position: positionValue,
+			wage: wageValue,
+		}).then(() => {
+			console.log("IT WAS A SUCCESS");
+		});
 	};
 
 	return (
@@ -66,7 +79,7 @@ function Info() {
 				<button
 					className='btn'
 					onClick={() => {
-						DisplayValues();
+						addEmployeData();
 						resetName("");
 						resetCountry("");
 						resetAge("");
